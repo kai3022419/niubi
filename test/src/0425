@@ -1,0 +1,24 @@
+分页：
+	每页的记录数量                    --pageSize     自定义
+	当前页码                                --pageCode     页面获取
+	总记录数                                --totalRecord  dao层获取    SELECT COUNT(*) FROM 表
+	总页数(不需要定义)   --totalRecord/pageSize 如果除不尽默认+1页      
+	
+	当前页面的具体数据          --beanList      SELECT * FROM  表  LIMIT (pageCode-1)*pageSize,pageSize
+	
+	注： LIMIT m,n    -->m+1,m+n
+	
+1.把上述信息封装到一个类：PageBean
+	把具体的pageBean对象交给jsp. 使jsp显示正确的内容
+	
+2.显示具体页码：
+	总共显示的页码数量：10
+	1  2  3 4 5 6 7 8 9 10 
+	中心点n：第6个
+	如果当前页小于等于中心点，不变
+	如果当前页大于中心点，n-5 n-4 n-3 n-2 n-1 n n+1 n+2 n+3 n+4
+	
+	
+作业：
+1.把高级查询的条件改为模糊查询
+2.把高级查询也加上分页查询效果
